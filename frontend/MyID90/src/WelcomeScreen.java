@@ -19,6 +19,7 @@ public class WelcomeScreen extends JPanel {
 	JButton dependentsButton;
 	JButton deleteDestinationButton;
 	JButton planButton;
+	JButton closeButton;
 	JLabel wel_label;
 	JLabel tokenTracker;
 	JPanel newPanel;
@@ -36,6 +37,7 @@ public class WelcomeScreen extends JPanel {
 		deleteDestinationButton = new JButton("Delete destination from database");
 		this.logoutButton = new JButton("Logout");
 		dependentsButton = new JButton("Manage Dependents");
+		closeButton = new JButton("Close");
 
 		this.tokenTracker = new JLabel("Temp");
 		newPanel = new JPanel(new GridLayout(6, 1));
@@ -50,6 +52,7 @@ public class WelcomeScreen extends JPanel {
 		newPanel.add(deleteDestinationButton);
 		newPanel.add(viewFlightButton);
 		newPanel.add(planButton);
+		newPanel.add(closeButton);
 		if (!ScreenController.getInstance().getUser().isDependent)
 			newPanel.add(dependentsButton);
 		newPanel.add(this.logoutButton);
@@ -84,6 +87,13 @@ public class WelcomeScreen extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ScreenController.getInstance().switchScreen("Create Flight Screen");
+			}
+		});
+
+		closeButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				StateManager.executeCommand();
 			}
 		});
 

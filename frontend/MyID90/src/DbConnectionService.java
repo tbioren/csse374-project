@@ -32,4 +32,9 @@ public class DbConnectionService {
     public static synchronized Connection getConnection() {
         return connection;
     }
+    public static void close() throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
+    }
 }
