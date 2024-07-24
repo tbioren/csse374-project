@@ -20,6 +20,8 @@ public class WelcomeScreen extends JPanel {
 	JButton deleteDestinationButton;
 	JButton planButton;
 	JButton closeButton;
+	JButton airlinePageButton;
+	JButton employeesPageButton;
 	JLabel wel_label;
 	JLabel tokenTracker;
 	JPanel newPanel;
@@ -38,6 +40,8 @@ public class WelcomeScreen extends JPanel {
 		this.logoutButton = new JButton("Logout");
 		dependentsButton = new JButton("Manage Dependents");
 		closeButton = new JButton("Close");
+		airlinePageButton = new JButton("Airline Page");
+		employeesPageButton = new JButton("Employees Page");
 
 		this.tokenTracker = new JLabel("Temp");
 		newPanel = new JPanel(new GridLayout(6, 1));
@@ -53,6 +57,8 @@ public class WelcomeScreen extends JPanel {
 		newPanel.add(viewFlightButton);
 		newPanel.add(planButton);
 		newPanel.add(closeButton);
+		newPanel.add(airlinePageButton);
+		newPanel.add(employeesPageButton);
 		if (!ScreenController.getInstance().getUser().isDependent)
 			newPanel.add(dependentsButton);
 		newPanel.add(this.logoutButton);
@@ -143,6 +149,20 @@ public class WelcomeScreen extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ScreenController.getInstance().switchScreen("Manage Dependents Screen");
+			}
+		});
+
+		airlinePageButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ScreenController.getInstance().switchScreen("Airline Page");
+			}
+		});
+
+		employeesPageButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ScreenController.getInstance().switchScreen("Employees Page");
 			}
 		});
 	}

@@ -137,6 +137,14 @@ public class ScreenController extends JFrame {
 		mainPanel.add(addFlightToPlanScreen, "Add Flight To Plan Screen");
 		addFlightToPlanPage = (AddFlightToPlanPage) addFlightToPlanScreen;
 		panelMap.put("Add Flight To Plan Screen", addFlightToPlanScreen);
+
+		JPanel airlinePage = new AirlinePage();
+		mainPanel.add(airlinePage, "Airline Page");
+		panelMap.put("Airline Page", airlinePage);
+
+		JPanel employeesPage = new EmployeesPage();
+		mainPanel.add(employeesPage, "Employees Page");
+		panelMap.put("Employees Page", employeesPage);
 	}
 
 	public void switchScreen(String screen) {
